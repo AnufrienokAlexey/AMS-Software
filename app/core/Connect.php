@@ -56,7 +56,7 @@ class Connect extends Db
         }
 
         $pdo = self::db();
-        $stm = $pdo->prepare("SELECT * FROM `cloud_storage`");
+        $stm = $pdo->prepare("SELECT * FROM `ams-software_storage`");
         dump($stm);
         $stm->execute();
     }

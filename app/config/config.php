@@ -2,7 +2,7 @@
 
 return [
     'host' => 'localhost',
-    'dbname' => 'cloud_storage',
+    'dbname' => 'ams-software_storage',
     'charset' => 'utf8',
     'username' => 'root',
     'password' => '',

@@ -6,7 +6,6 @@ use app\core\Connect;
 spl_autoload_register();
 
 define("CONFIG", require_once(__DIR__ . '/config/config.php'));
-define("ROUTES", require_once(__DIR__ . '/config/routes.php'));
 
 require_once __DIR__ . '/config/config.php';
 require_once __DIR__ . '/../vendor/autoload.php';

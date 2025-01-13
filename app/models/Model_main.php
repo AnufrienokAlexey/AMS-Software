@@ -2,10 +2,10 @@
 
 namespace App\Model;
 
-use App\Core\db;
+use app\core\Db;
 use PDO;
 
-class Model_portfolio
+class Model_main
 {
     public function get_data(): array
     {
@@ -25,7 +25,7 @@ class Model_portfolio
 
     public function get_users(): array
     {
-        $conn = db::getDatabase()->prepare("SELECT * FROM `users` WHERE `id` = 1");
+        $conn = Db::getDatabase()->prepare("SELECT * FROM `users` WHERE `id` = 1");
         $conn->execute();
         return $conn->fetch(PDO::FETCH_ASSOC);
     }
