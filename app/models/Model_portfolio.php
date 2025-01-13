@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Model;
+
 use App\Core\db;
 use PDO;
 
-class model_portfolio
+class Model_portfolio
 {
     public function get_data(): array
     {

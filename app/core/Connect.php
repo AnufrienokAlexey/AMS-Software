@@ -4,10 +4,8 @@ namespace app\core;
 
 use PDO;
 
-class connect extends db
+class Connect extends Db
 {
-    //protected static string $dbName = 'cloud_storage';
-
     public static function db(): PDO
     {
         $db = new db(
@@ -40,23 +38,6 @@ class connect extends db
 
     public static function createNewDb($dbname): void
     {
-//        $host = self::db()->host;
-//        $username = self::db()->username;
-//        $password = self::db()->password;
-//
-//        try {
-//            $pdo = new PDO(
-//                "mysql:host=$host",
-//                "$username",
-//                "$password"
-//            );
-//            $stm = $pdo->prepare(
-//                "CREATE DATABASE $dbname COLLATE utf8_general_ci"
-//            );
-//            $stm->execute();
-//        } catch (\PDOException $e) {
-//            error_log($e->getMessage());
-//        }
         try {
             self::db()->prepare(
                 "CREATE DATABASE $dbname COLLATE utf8_general_ci"

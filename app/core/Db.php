@@ -2,7 +2,7 @@
 
 namespace app\core;
 
-class db
+class Db
 {
     protected string $host;
     protected string $dbname;

@@ -1,10 +1,10 @@
 <?php
 
-use app\core\controller;
+use app\core\Controller;
 
-class controller_main extends controller
+class Controller_main extends Controller
 {
-    function action_index(): void
+    public function action_index(): void
     {
         $this->view->generate('main_view.php', 'template_view.php');
     }

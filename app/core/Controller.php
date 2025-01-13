@@ -2,19 +2,20 @@
 
 namespace app\core;
 
-use view;
+use View;
 
-abstract class controller {
+abstract class Controller
+{
 
     public $model;
     public $view;
 
-    function __construct()
+    public function __construct()
     {
-        $this->view = new view();
+        $this->view = new View();
     }
 
-    function action_index()
+    public function action_index()
     {
     }
 }

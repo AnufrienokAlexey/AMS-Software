@@ -2,10 +2,8 @@
 
 namespace app\core;
 
-class fillDb
+class FillDb
 {
-
-
     public static function getRequest($url): bool|string
     {
         $ch = curl_init();
