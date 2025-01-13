@@ -4,13 +4,13 @@ namespace app\core;
 
 use PDO;
 
-class Connect extends Db
+class connect extends db
 {
     //protected static string $dbName = 'cloud_storage';
 
     public static function db(): PDO
     {
-        $db = new Db(
+        $db = new db(
             CONFIG['host'],
             CONFIG['dbname'],
             CONFIG['charset'],

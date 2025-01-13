@@ -2,7 +2,7 @@
 
 namespace app\core;
 
-class FillDb
+class fillDb
 {
 
 
@@ -37,7 +37,7 @@ class FillDb
 
     public static function fillDb(): void
     {
-//        $db = Connect::connect();
+//        $db = connect::connect();
 //        dump($db);
 //        try {
 //            $stm = $db->prepare("SELECT * FROM users");

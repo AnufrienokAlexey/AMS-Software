@@ -1,0 +1,149 @@
+:root {
+    --black: black;
+    --grey: grey;
+    --white: #fff;
+    --orange: #FFD600;
+    --dark-orange: #E1670E;
+    --light-grey: #CACACA;
+    --body: rgba(148, 112, 148, 0.85);
+    /*--body: rgb(51, 44, 44);*/
+    /*--body: #E5E5E5;*/
+}
+* {box-sizing: border-box}
+
+body {
+    background-color: var(--body);
+    font-family: 'TTChocolatesBlack' , sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: none;
+}
+
+.logo {
+    width: 22px;
+    height: 16px;
+}
+
+.main {
+    height: 100vh;
+    margin: 0 auto;
+    max-width: 1440px;
+    min-height: 820px;
+    justify-content: space-between;
+    background-color: #FFF;
+}
+
+.left-container {
+    width: 256px;
+    background-color: #F5F5F5;
+}
+
+.left-header {
+    margin: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-title {
+    font-size: 18px;
+    line-height: 32px;
+    color: #1890FF;
+}
+
+.center-title {
+    margin: 10px;
+    font-size: 40px;
+    line-height: 48px;
+}
+
+.center-container {
+    width: 850px;
+    padding: 0 36px;
+    flex-direction: column;
+}
+
+.center-header {
+    height: 46px;
+    padding: 20px 0;
+    margin: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-container{
+    flex-direction: column;
+    width: 354px;
+    background-color: #F5F5F5;
+}
+
+.create-drive {
+    max-width: 154px;
+    height: 40px;
+    background-color: #1890FF;
+    border: 1px solid #1890FF;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.043);
+    border-radius: 4px;
+    color: white;
+}
+
+.folders {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.folder {
+    flex-direction: column;
+    align-items: center;
+}
+
+.folder-image {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.folder-title {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.sign-in, .sign-up{
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_sign-in {
+    width: 500px;
+}
+
+.sign-in_bottom {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sign-in_title {
+    color: green;
+}
+
+.password_not_match {
+    color: darkred;
+}
+
+.right-container__title {
+    margin: 10px;
+}
