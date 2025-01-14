@@ -16,6 +16,7 @@
     <script defer src="app/public/js/index.js"></script>
 </head>
 <body>
+<h1 hidden="hidden">This is MVC-project for AMS-Software.</h1>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">AWS-Software</a>
