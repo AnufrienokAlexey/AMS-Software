@@ -68,7 +68,7 @@
 <?php
 include 'app/views/' . $content_view; ?>
 <div class="text-center mt-5 text-muted">
-    Copyright &copy; 2025 &mdash; Alexey Anufrienok
+    Copyright &copy; 2025 &mdash; <a href="https://github.com/AnufrienokAlexey">Alexey Anufrienok</a>
 </div>
 <script defer src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
