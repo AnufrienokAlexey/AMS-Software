@@ -1,4 +1,1 @@
-if (window.history.replaceState) {
-    window.history.replaceState(null, null, window.location.href); // Убираем форму из истории браузера
-}
-
+console.log("Надо бы показать тут свои знания по js, но что именно...");

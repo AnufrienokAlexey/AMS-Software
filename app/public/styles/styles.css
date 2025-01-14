@@ -9,11 +9,14 @@
     /*--body: rgb(51, 44, 44);*/
     /*--body: #E5E5E5;*/
 }
-* {box-sizing: border-box}
+
+* {
+    box-sizing: border-box
+}
 
 body {
     background-color: var(--body);
-    font-family: 'TTChocolatesBlack' , sans-serif;
+    font-family: 'TTChocolatesBlack', sans-serif;
 }
 
 a {
@@ -22,6 +25,13 @@ a {
 
 .flex {
     display: flex;
+}
+
+.cell {
+    justify-content: space-between;
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
 .reset {
@@ -82,7 +92,7 @@ a {
     align-items: center;
 }
 
-.right-container{
+.right-container {
     flex-direction: column;
     width: 354px;
     background-color: #F5F5F5;
@@ -120,7 +130,7 @@ a {
     font-weight: 700;
 }
 
-.sign-in, .sign-up{
+.sign-in, .sign-up {
     flex-direction: column;
     height: 100vh;
     align-items: center;

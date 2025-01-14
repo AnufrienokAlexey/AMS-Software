@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Главная</title>
-    <!--    <link rel="stylesheet" type="text/css" href="app/public/styles/normalize.css" />-->
-    <!--    <link rel="stylesheet" type="text/css" href="app/public/styles/styles.css" />-->
-    <!--    <link rel="stylesheet" type="text/css" href="app/public/styles/fonts.css" />-->
-    <!--    <link rel="stylesheet" type="text/css" href="app/public/styles/media.css" />-->
+    <link rel="stylesheet" type="text/css" href="app/public/styles/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="app/public/styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="app/public/styles/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="app/public/styles/media.css"/>
     <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
@@ -36,12 +36,25 @@
                         Главная
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link<?php
-                    if ($_SERVER['REQUEST_URI'] == "/portfolio") {
+                    if ($_SERVER['REQUEST_URI'] == "/tables") {
                         echo ' active';
                     } ?>" <?php
-                    if ($_SERVER['REQUEST_URI'] == "/portfolio") {
+                    if ($_SERVER['REQUEST_URI'] == "/tables") {
+                        echo 'aria-current="page"';
+                    } ?> href="/tables">
+                        Таблицы
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link<?php
+                    if ($_SERVER['REQUEST_URI'] == "/404") {
+                        echo ' active';
+                    } ?>" <?php
+                    if ($_SERVER['REQUEST_URI'] == "/404") {
                         echo 'aria-current="page"';
                     } ?> href="/404">
                         Страница 404
@@ -53,6 +66,9 @@
 </nav>
 <?php
 include 'app/views/' . $content_view; ?>
+<div class="text-center mt-5 text-muted">
+    Copyright &copy; 2025 &mdash; Alexey Anufrienok
+</div>
 <script defer src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>
