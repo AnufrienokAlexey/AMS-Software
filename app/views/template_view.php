@@ -13,6 +13,7 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
     <script defer src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script defer src="app/public/js/index.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">

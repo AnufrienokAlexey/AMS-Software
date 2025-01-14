@@ -1,13 +1,10 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    header('Location: /');
-    exit;
-}
+dump($_POST);
 ?>
 
 <h1>Главная</h1>
-<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" id="createDbByButton">
     <div class="mb-3">
         <label for="createDbByButton">Название новой базы данных</label>
         <input type="text" value="AWS-Software" name="createDbByButton">
@@ -18,5 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </form>
 
 <?php
-dump($data);
+if (isset($_POST['isDbCreated'])) {
+    dump($_POST['isDbCreated']);
+}
 ?>
