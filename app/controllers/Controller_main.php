@@ -1,12 +1,38 @@
 <?php
 
-use app\core\Connect;
 use app\core\Controller;
+use App\Model\Model_main;
 
 class Controller_main extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->model = new Model_main();
+    }
+
     public function action_index(): void
     {
-        $this->view->generate('main_view.php', 'template_view.php');
+        if (isset($_POST['createDbByButton'])) {
+            $this->createDbByButton(
+                $this->validateInput($_POST['createDbByButton'])
+            );
+            unset($_POST['createDbByButton']);
+        }
+        $this->view->generate(
+            'main_view.php',
+            'template_view.php',
+        );
+    }
+
+    public function createDbByButton($dbname): bool
+    {
+        $this->model->createNewDb($dbname);
+        return $this->model->isDbCreated($dbname);
+    }
+
+    public function validateInput($str): string
+    {
+        return $str;
     }
 }

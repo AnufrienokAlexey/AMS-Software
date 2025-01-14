@@ -51,12 +51,4 @@ class Connect extends Db
             }
         }
     }
-
-    public static function connect(): void
-    {
-        $pdo = self::db();
-        $stm = $pdo->prepare("SELECT * FROM `ams-software_storage`");
-        dump($stm);
-        $stm->execute();
-    }
 }
