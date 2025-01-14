@@ -38,23 +38,22 @@ class Connect extends Db
 
     public static function createNewDb($dbname): void
     {
-        try {
-            self::db()->prepare(
-                "CREATE DATABASE $dbname COLLATE utf8_general_ci"
-            );
-        } catch (\PDOException $e) {
-            error_log($e->getMessage());
+        $databases = self::getAllDatabases();
+
+        if (!in_array(CONFIG['dbname'], $databases)) {
+            try {
+                $sth = self::db()->prepare(
+                    "CREATE DATABASE `$dbname` COLLATE utf8_general_ci"
+                );
+                $sth->execute();
+            } catch (\PDOException $e) {
+                error_log($e->getMessage());
+            }
         }
     }
 
     public static function connect(): void
     {
-        $databases = self::getAllDatabases();
-
-        if (!in_array(CONFIG['dbname'], $databases)) {
-            self::createNewDb(CONFIG['dbname']);
-        }
-
         $pdo = self::db();
         $stm = $pdo->prepare("SELECT * FROM `ams-software_storage`");
         dump($stm);

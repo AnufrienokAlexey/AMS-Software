@@ -1,5 +1,6 @@
 <?php
 
+use app\core\Connect;
 use app\core\Controller;
 
 class Controller_main extends Controller
