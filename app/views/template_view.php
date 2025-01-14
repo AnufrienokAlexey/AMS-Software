@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Главная</title>
-    <link rel="stylesheet" type="text/css" href="app/public/styles/normalize.css"/>
-    <link rel="stylesheet" type="text/css" href="app/public/styles/styles.css"/>
-    <link rel="stylesheet" type="text/css" href="app/public/styles/fonts.css"/>
-    <link rel="stylesheet" type="text/css" href="app/public/styles/media.css"/>
-    <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/<?= APP; ?>/public/styles/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="/<?= APP; ?>/public/styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="/<?= APP; ?>/public/styles/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/<?= APP; ?>/public/styles/media.css"/>
+    <link rel="stylesheet" type="text/css" href="/vendor/twbs/bootstrap/dist/css/bootstrap.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>

@@ -6,7 +6,7 @@ use PDO;
 
 class Connect extends Db
 {
-    public static function db(): PDO
+    public static function db($dbname = null): PDO
     {
         $db = new db(
             CONFIG['host'],
@@ -18,8 +18,16 @@ class Connect extends Db
         $dbVars = get_object_vars($db);
 
         try {
+            if ($dbname == null) {
+                return new PDO(
+                    "mysql:host=$dbVars[host]",
+                    "$dbVars[username]",
+                    "$dbVars[password]"
+                );
+            }
             return new PDO(
-                "mysql:host=$dbVars[host]",
+                "mysql:host=$dbVars[host];
+                    dbname=$dbVars[dbname]",
                 "$dbVars[username]",
                 "$dbVars[password]"
             );
@@ -33,6 +41,13 @@ class Connect extends Db
     {
         return self::db()
             ->query('SHOW DATABASES')
+            ->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    public static function getAllTables(): false|array
+    {
+        return self::db(CONFIG['dbname'])
+            ->query('SHOW TABLES')
             ->fetchAll(PDO::FETCH_COLUMN);
     }
 
@@ -50,5 +65,34 @@ class Connect extends Db
                 error_log($e->getMessage());
             }
         }
+    }
+
+    public static function createNewTable($table): void
+    {
+        $tables = self::getAllTables();
+
+        if (!in_array($table, $tables)) {
+            try {
+                $sth = self::db(CONFIG['dbname'])->prepare(
+                    "CREATE TABLE `$table` (
+					id integer auto_increment primary key, 
+					login varchar(30), 
+					email varchar(100), 
+					password varchar(255));"
+                );
+                $sth->execute();
+            } catch (\PDOException $e) {
+                error_log($e->getMessage());
+            }
+        }
+    }
+
+    public static function addCarBrands($dbname, $carBrand): void
+    {
+        $pdo = self::db($dbname);
+        $stm = $pdo->prepare("SELECT * FROM news where carBrand = :carBrand");
+        $stm->bindParam(':carBrand', $carBrand);
+        $stm->execute();
+        dump($stm->fetchAll(2));
     }
 }

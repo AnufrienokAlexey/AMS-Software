@@ -42,10 +42,10 @@ class Router
             if (method_exists($controller, $action)) {
                 $controller->$action();
             } else {
-                Router::ErrorPage404();
+                //Router::ErrorPage404();
             }
         } else {
-            Router::ErrorPage404();
+            //Router::ErrorPage404();
         }
     }
 

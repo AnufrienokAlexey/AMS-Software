@@ -1,9 +1,9 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    header('Location: /');
-    exit;
-}
+//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//    header('Location: /');
+//    exit;
+//}
 ?>
 
 <section class="d-flex justify-content-center">
@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="card shadow-lg">
                     <div class="card-body">
                         <h1 class="fs-4 card-title fw-bold mb-4 text-center">Таблица марок автомобилей</h1>
-                        <form method="POST" class="needs-validation" enctype="multipart/form-data">
+                        <form method="POST" action="/main/addCarBrands" class="needs-validation"
+                              enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="carBrand">Марка автомобиля</label>
                                 <input id="carBrand" type="text" class="form-control" name="carBrand" value=""

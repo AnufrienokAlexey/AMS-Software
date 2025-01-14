@@ -12,4 +12,8 @@ class Model_main extends Model
     {
         return null;
     }
+
+    public function addCarBrands()
+    {
+    }
 }
