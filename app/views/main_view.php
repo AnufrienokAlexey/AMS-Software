@@ -1,9 +1,9 @@
 <?php
 
-//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//    header('Location: /');
-//    exit;
-//}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    header('Location: /');
+    exit;
+}
 ?>
 
 <section class="d-flex justify-content-center">

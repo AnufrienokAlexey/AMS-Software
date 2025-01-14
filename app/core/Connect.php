@@ -67,7 +67,7 @@ class Connect extends Db
         }
     }
 
-    public static function createNewTable($table): void
+    public static function createNewTable($table, $tableParams): void
     {
         $tables = self::getAllTables();
 
@@ -76,9 +76,7 @@ class Connect extends Db
                 $sth = self::db(CONFIG['dbname'])->prepare(
                     "CREATE TABLE `$table` (
 					id integer auto_increment primary key, 
-					login varchar(30), 
-					email varchar(100), 
-					password varchar(255));"
+					$tableParams"
                 );
                 $sth->execute();
             } catch (\PDOException $e) {
@@ -90,7 +88,7 @@ class Connect extends Db
     public static function addCarBrands($dbname, $carBrand): void
     {
         $pdo = self::db($dbname);
-        $stm = $pdo->prepare("SELECT * FROM news where carBrand = :carBrand");
+        $stm = $pdo->prepare("SELECT * FROM carmodels where carBrand = :carBrand");
         $stm->bindParam(':carBrand', $carBrand);
         $stm->execute();
         dump($stm->fetchAll(2));

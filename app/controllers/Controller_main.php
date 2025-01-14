@@ -31,7 +31,7 @@ class Controller_main extends Controller
     {
         if (isset($_POST['carBrand'])) {
             $carBrand = $_POST['carBrand'];
-            Connect::addCarBrands(CONFIG['dbname'], $carBrand);
+            //$this->model->addCarBrands($carBrand);
         }
     }
 }
