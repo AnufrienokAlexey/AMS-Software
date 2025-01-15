@@ -16,13 +16,6 @@ class Model_task
         Connect::importTableToDb(CONFIG['dbname'], 'cars', 'cars.sql');
     }
 
-    public function createCars(): void
-    {
-        $tableParams = 'carBrand varchar(30), 
-					carModel varchar(30));';
-        Connect::createNewTable('cars', $tableParams);
-    }
-
     public function deleteCars(): void
     {
         Connect::deleteTable('cars');

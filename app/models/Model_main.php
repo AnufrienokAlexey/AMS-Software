@@ -9,20 +9,24 @@ class Model_main extends Model
 {
     public function __construct()
     {
-        $tableParams = 'carBrand varchar(30));';
-        Connect::createNewTable('carBrands', $tableParams);
+//        $tableParams = 'carBrand varchar(30));';
+//        Connect::createNewTable('carBrands', $tableParams);
+//
+//        $tableParams = 'carModel varchar(30),
+//					startDate varchar(30),
+//					endDate varchar(30),
+//					carImage varchar(100),
+//					carType varchar(30));';
+//        Connect::createNewTable('carModels', $tableParams);
+//
+//        $tableParams = 'workType varchar(30),
+//					workTime varchar(30),
+//					workCost varchar(30));';
+//        Connect::createNewTable('workCosts', $tableParams);
 
-        $tableParams = 'carModel varchar(30), 
-					startDate varchar(30), 
-					endDate varchar(30), 
-					carImage varchar(30), 
-					carType varchar(30));';
-        Connect::createNewTable('carModels', $tableParams);
-
-        $tableParams = 'workType varchar(30), 
-					workTime varchar(30), 
-					workCost varchar(30));';
-        Connect::createNewTable('workCosts', $tableParams);
+        Connect::importTableToDb(CONFIG['dbname'], 'carBrands', 'carbrands.sql');
+        //Connect::importTableToDb(CONFIG['dbname'], 'carModels', 'carbrands.sql');
+        //Connect::importTableToDb(CONFIG['dbname'], 'workCosts', 'carbrands.sql');
     }
 
     public function addCarBrands($carBrand): void

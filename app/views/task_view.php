@@ -9,13 +9,35 @@
 <p>
     <code>SELECT `carModel` FROM `carmodels` WHERE `endDate` < 2018;</code>
 </p>
+И будет такая таблица выглядеть следующим образом:
+<div class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-sm-center h-100">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h4 class="text-center">Задача 1</h4>
+                    <div class="d-flex flex-column">
+                        <?php
+                        foreach ($data as $item) {
+                            ?>
+                            <div class="d-flex justify-content-center">
+                                <div class="cell"><?= $item['carModel']; ?></div>
+                            </div>
+                            <?php
+                        } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 Но если подразумевается, что мы сами должны об этом подумать, то решение будет таким:
 <form action="/task/createCars" method="post">
-    <button type="submit" class="btn btn-primary">Создать новую таблицу связей c исходными данными</button>
+    <button type="submit" class="btn btn-primary">Создать новую cars таблицу связей c исходными данными</button>
 </form>
 
 <form action="/task/deleteCars" method="post">
-    <button type="submit" class="btn btn-danger">Удалить таблицу связей</button>
+    <button type="submit" class="btn btn-danger">Удалить таблицу cars</button>
 </form>
 <p>
     <code>SELECT `carModel` FROM `carmodels` WHERE `endDate` < 2018;</code>
