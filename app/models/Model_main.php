@@ -3,9 +3,8 @@
 namespace App\Model;
 
 use app\core\Connect;
-use app\core\Model;
 
-class Model_main extends Model
+class Model_main
 {
     public function __construct()
     {
@@ -23,11 +22,6 @@ class Model_main extends Model
 					workTime varchar(30), 
 					workCost varchar(30));';
         Connect::createNewTable('workCosts', $tableParams);
-    }
-
-    public function get_data(): null
-    {
-        return null;
     }
 
     public function addCarBrands($carBrand): void

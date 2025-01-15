@@ -1,6 +1,5 @@
 <?php
 
-use app\core\Connect;
 use app\core\Controller;
 use App\Model\Model_main;
 
@@ -10,20 +9,19 @@ class Controller_main extends Controller
     {
         parent::__construct();
         $this->model = new Model_main();
-        $data = $this->model->get_data();
-        $this->view->generate(
-            'main_view.php',
-            'template_view.php',
-            $data
-        );
     }
 
     public function action_index(): void
     {
+        $this->view->generate(
+            'main_view.php',
+            'template_view.php',
+        );
     }
 
     public function validateInput($str): string
     {
+        //Помимо валидации данных со стороны клиента их нужно валидировать еще и перед обработкой
         return $str;
     }
 
@@ -32,6 +30,7 @@ class Controller_main extends Controller
         if (isset($_POST['carBrand'])) {
             $this->model->addCarBrands($_POST['carBrand']);
         }
+        header('Location: /');
     }
 
     public function action_addCarModels(): void
@@ -56,6 +55,7 @@ class Controller_main extends Controller
                 }
             }
         }
+        header('Location: /');
     }
 
     public function action_addWorkCosts(): void
@@ -69,5 +69,6 @@ class Controller_main extends Controller
                 $_POST['workCost']
             );
         }
+        header('Location: /');
     }
 }

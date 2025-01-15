@@ -91,4 +91,20 @@ class Connect extends Db
         $stm = $pdo->prepare("INSERT INTO `$table` ($fields) VALUES ($fieldsValue);");
         $stm->execute();
     }
+
+    public static function getDataFromTable($dbname, $table): false|array
+    {
+        $pdo = self::db($dbname);
+        $stm = $pdo->prepare("SELECT * FROM `$table`;");
+        $stm->execute();
+        return $stm->fetchAll(2);
+    }
+
+    public static function deleteId($dbname, $table, $id): void
+    {
+        $pdo = self::db($dbname);
+        $stm = $pdo->prepare("DELETE FROM `$table` WHERE `id` = :id;");
+        $stm->bindParam(':id', $id);
+        $stm->execute();
+    }
 }

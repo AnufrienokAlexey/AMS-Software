@@ -1,11 +1,3 @@
-<?php
-
-//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//    header('Location: /');
-//    exit;
-//}
-?>
-
 <section class="d-flex justify-content-center">
     <div class="h-100">
         <div class="container h-100">
