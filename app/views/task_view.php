@@ -10,6 +10,13 @@
     <code>SELECT `carModel` FROM `carmodels` WHERE `endDate` < 2018;</code>
 </p>
 Но если подразумевается, что мы сами должны об этом подумать, то решение будет таким:
+<form action="/task/createCars" method="post">
+    <button type="submit" class="btn btn-primary">Создать новую таблицу связей</button>
+</form>
+
+<form action="/task/deleteCars" method="post">
+    <button type="submit" class="btn btn-danger">Удалить таблицу связей</button>
+</form>
 <p>
     <code>SELECT `carModel` FROM `carmodels` WHERE `endDate` < 2018;</code>
 </p>

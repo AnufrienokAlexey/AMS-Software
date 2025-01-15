@@ -10,4 +10,21 @@ class Model_task
     {
         return Connect::task1(CONFIG['dbname']);
     }
+
+    public function getDataFromTable(): false|array
+    {
+        return Connect::getDataFromTable(CONFIG['dbname'], 'cars');
+    }
+
+    public function createCars(): void
+    {
+        $tableParams = 'carBrand varchar(30), 
+					carModel varchar(30));';
+        Connect::createNewTable('cars', $tableParams);
+    }
+
+    public function deleteCars(): void
+    {
+        Connect::deleteTable('cars');
+    }
 }

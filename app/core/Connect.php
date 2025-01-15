@@ -85,6 +85,22 @@ class Connect extends Db
         }
     }
 
+    public static function deleteTable($table): void
+    {
+        $tables = self::getAllTables();
+
+        if (in_array($table, $tables)) {
+            try {
+                $sth = self::db(CONFIG['dbname'])->prepare(
+                    "DROP TABLE `$table`"
+                );
+                $sth->execute();
+            } catch (\PDOException $e) {
+                error_log($e->getMessage());
+            }
+        }
+    }
+
     public static function addToTable($dbname, $table, $fields, $fieldsValue): void
     {
         $pdo = self::db($dbname);
@@ -94,10 +110,17 @@ class Connect extends Db
 
     public static function getDataFromTable($dbname, $table): false|array
     {
-        $pdo = self::db($dbname);
-        $stm = $pdo->prepare("SELECT * FROM `$table`;");
-        $stm->execute();
-        return $stm->fetchAll(2);
+        $tables = self::getAllTables();
+        if (!in_array($table, $tables)) {
+            try {
+                $stm = self::db($dbname)->prepare("SELECT * FROM `$table`;");
+                $stm->execute();
+                return $stm->fetchAll(2);
+            } catch (\PDOException $e) {
+                error_log($e->getMessage());
+            }
+        }
+        return false;
     }
 
     public static function deleteId($dbname, $table, $id): void
