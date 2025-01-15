@@ -1,9 +1,9 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    header('Location: /');
-    exit;
-}
+//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//    header('Location: /');
+//    exit;
+//}
 ?>
 
 <section class="d-flex justify-content-center">
@@ -44,7 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="card shadow-lg">
                     <div class="card-body">
                         <h1 class="fs-4 card-title fw-bold mb-4 text-center">Таблица моделей автомобилей</h1>
-                        <form method="POST" class="needs-validation" enctype="multipart/form-data">
+                        <form method="POST" action="/main/addCarModels" class="needs-validation"
+                              enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="carModel">Модель автомобиля</label>
                                 <input id="carModel" type="text" class="form-control" name="carModel" value=""
@@ -101,7 +102,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="card shadow-lg">
                     <div class="card-body">
                         <h1 class="fs-4 card-title fw-bold mb-4 text-center">Таблица стоимости работ</h1>
-                        <form method="POST" class="needs-validation" enctype="multipart/form-data">
+                        <form method="POST" action="/main/addWorkCosts" class="needs-validation"
+                              enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="workType">Вид работ</label>
                                 <input id="workType" type="text" class="form-control" name="workType" value=""

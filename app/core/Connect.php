@@ -85,12 +85,10 @@ class Connect extends Db
         }
     }
 
-    public static function addCarBrands($dbname, $carBrand): void
+    public static function addToTable($dbname, $table, $fields, $fieldsValue): void
     {
         $pdo = self::db($dbname);
-        $stm = $pdo->prepare("SELECT * FROM carmodels where carBrand = :carBrand");
-        $stm->bindParam(':carBrand', $carBrand);
+        $stm = $pdo->prepare("INSERT INTO `$table` ($fields) VALUES ($fieldsValue);");
         $stm->execute();
-        dump($stm->fetchAll(2));
     }
 }

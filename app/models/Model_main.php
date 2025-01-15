@@ -30,9 +30,24 @@ class Model_main extends Model
         return null;
     }
 
-    public function addCarBrands($carBrand)
+    public function addCarBrands($carBrand): void
     {
-        Connect::addCarBrands(CONFIG['dbname'], $carBrand);
+        $fields = "`id`, `carBrand`";
+        $fieldsValue = "null, '$carBrand'";
+        Connect::addToTable(CONFIG['dbname'], 'carBrands', $fields, $fieldsValue);
     }
 
+    public function addCarModels($carModel, $startDate, $endDate, $carImage, $carType): void
+    {
+        $fields = "`id`, `carModel`, `startDate`, `endDate`, `carImage`, `carType`";
+        $fieldsValue = "null, '$carModel', '$startDate', '$endDate', '$carImage', '$carType'";
+        Connect::addToTable(CONFIG['dbname'], 'carModels', $fields, $fieldsValue);
+    }
+
+    public function addWorkCosts($workType, $workTime, $workCost): void
+    {
+        $fields = "`id`, `workType`, `workTime`, `workCost`";
+        $fieldsValue = "null, '$workType', '$workTime', '$workCost'";
+        Connect::addToTable(CONFIG['dbname'], 'workCosts', $fields, $fieldsValue);
+    }
 }
