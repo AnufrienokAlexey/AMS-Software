@@ -52,6 +52,18 @@
 
                 <li class="nav-item">
                     <a class="nav-link<?php
+                    if ($_SERVER['REQUEST_URI'] == "/task") {
+                        echo ' active';
+                    } ?>" <?php
+                    if ($_SERVER['REQUEST_URI'] == "/task") {
+                        echo 'aria-current="page"';
+                    } ?> href="/task">
+                        Задачи и решения
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link<?php
                     if ($_SERVER['REQUEST_URI'] == "/404") {
                         echo ' active';
                     } ?>" <?php

@@ -2,8 +2,6 @@
 
 namespace app\core;
 
-use View;
-
 abstract class Controller
 {
 

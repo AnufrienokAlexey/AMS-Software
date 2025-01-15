@@ -3,8 +3,9 @@
 namespace App\Model;
 
 use app\core\Connect;
+use app\core\Model;
 
-class Model_main
+class Model_main extends Model
 {
     public function __construct()
     {
