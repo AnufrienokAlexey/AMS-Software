@@ -13,17 +13,15 @@ class Controller_task extends Controller
 
     public function action_index(): void
     {
-        $data = $this->model->getDataFromTable();
         $this->view->generate(
             'task_view.php',
             'template_view.php',
-            $data
         );
     }
 
     public function action_createCars(): void
     {
-        $this->model->createCars();
+        $this->model->importTableToDb();
         header('Location: /task');
     }
 

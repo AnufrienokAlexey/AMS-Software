@@ -11,9 +11,9 @@ class Model_task
         return Connect::task1(CONFIG['dbname']);
     }
 
-    public function getDataFromTable(): false|array
+    public function importTableToDb(): void
     {
-        return Connect::getDataFromTable(CONFIG['dbname'], 'cars');
+        Connect::importTableToDb(CONFIG['dbname'], 'cars', 'cars.sql');
     }
 
     public function createCars(): void

@@ -123,6 +123,25 @@ class Connect extends Db
         return false;
     }
 
+    public static function importTableToDb($dbname, $table, $sqlFile): void
+    {
+        $tables = self::getAllTables();
+        $sqlPath = APP . '/sql/' . $sqlFile;
+
+        if (file_exists($sqlPath)) {
+            if (!in_array($table, $tables)) {
+                try {
+                    $pdo = self::db($dbname);
+                    $sql = file_get_contents($sqlPath);
+                    $pdo->exec($sql);
+                    $pdo->exec($sql);
+                } catch (\PDOException $e) {
+                    error_log($e->getMessage());
+                }
+            }
+        }
+    }
+
     public static function deleteId($dbname, $table, $id): void
     {
         $pdo = self::db($dbname);
