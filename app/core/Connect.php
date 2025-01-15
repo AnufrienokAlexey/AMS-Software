@@ -107,4 +107,13 @@ class Connect extends Db
         $stm->bindParam(':id', $id);
         $stm->execute();
     }
+
+    public static function task1($dbname): false|array
+    {
+        $pdo = self::db($dbname);
+        $sql = 'SELECT `carModel` FROM `carmodels` WHERE `endDate` < 2018;';
+        $stm = $pdo->prepare($sql);
+        $stm->execute();
+        return $stm->fetchAll(2);
+    }
 }
