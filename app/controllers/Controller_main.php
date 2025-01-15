@@ -37,24 +37,24 @@ class Controller_main extends Controller
     public function action_addCarModels(): void
     {
         if (isset($_FILES["carImage"])) {
-            dump($_FILES);
             if ($_FILES["carImage"]["error"] == UPLOAD_ERR_OK) {
                 $name = basename($_FILES["carImage"]["name"]);
-                move_uploaded_file($_FILES["carImage"]["tmp_name"], APP . '/uploads/' . $name);
+                $path = APP . '/uploads/' . $name;
+                move_uploaded_file($_FILES["carImage"]["tmp_name"], $path);
+
+                if (isset($_POST['carModel'])
+                    && isset($_POST['startDate'])
+                    && isset($_POST['endDate'])
+                    && isset($_POST['carType'])) {
+                    $this->model->addCarModels(
+                        $_POST['carModel'],
+                        $_POST['startDate'],
+                        $_POST['endDate'],
+                        $path,
+                        $_POST['carType']
+                    );
+                }
             }
-        }
-        if (isset($_POST['carModel'])
-            && isset($_POST['startDate'])
-            && isset($_POST['endDate'])
-            && isset($_POST['carImage'])
-            && isset($_POST['carType'])) {
-            $this->model->addCarModels(
-                $_POST['carModel'],
-                $_POST['startDate'],
-                $_POST['endDate'],
-                $_POST['carImage'],
-                $_POST['carType']
-            );
         }
     }
 
