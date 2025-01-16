@@ -55,7 +55,6 @@ class Connect extends Db
     public static function createNewDb($dbname): void
     {
         $databases = self::getAllDatabases();
-        dump($databases);
 
         if (!in_array(CONFIG['dbname'], $databases)) {
             try {
