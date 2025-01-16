@@ -25,8 +25,8 @@ class Model_main extends Model
 //        Connect::createNewTable('workCosts', $tableParams);
 
         Connect::importTableToDb(CONFIG['dbname'], 'carBrands', 'carbrands.sql');
-        //Connect::importTableToDb(CONFIG['dbname'], 'carModels', 'carbrands.sql');
-        //Connect::importTableToDb(CONFIG['dbname'], 'workCosts', 'carbrands.sql');
+        Connect::importTableToDb(CONFIG['dbname'], 'carModels', 'carmodels.sql');
+        Connect::importTableToDb(CONFIG['dbname'], 'workCosts', 'workcosts.sql');
     }
 
     public function addCarBrands($carBrand): void

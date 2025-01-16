@@ -6,7 +6,7 @@ use PDO;
 
 class Connect extends Db
 {
-    public static function db($dbname = null): PDO
+    public static function db($database = null): PDO
     {
         $db = new db(
             CONFIG['host'],
@@ -18,22 +18,23 @@ class Connect extends Db
         $dbVars = get_object_vars($db);
 
         try {
-            if ($dbname == null) {
+            if ($database == null) {
                 return new PDO(
                     "mysql:host=$dbVars[host]",
                     "$dbVars[username]",
                     "$dbVars[password]"
                 );
-            }
-            return new PDO(
-                "mysql:host=$dbVars[host];
+            } else {
+                return new PDO(
+                    "mysql:host=$dbVars[host];
                     dbname=$dbVars[dbname]",
-                "$dbVars[username]",
-                "$dbVars[password]"
-            );
+                    "$dbVars[username]",
+                    "$dbVars[password]"
+                );
+            }
         } catch (\Exception $e) {
             error_log($e->getMessage());
-            die('MySQL is not connected!');
+            die('MySQL is not connected!!!');
         }
     }
 
@@ -54,6 +55,7 @@ class Connect extends Db
     public static function createNewDb($dbname): void
     {
         $databases = self::getAllDatabases();
+        dump($databases);
 
         if (!in_array(CONFIG['dbname'], $databases)) {
             try {
