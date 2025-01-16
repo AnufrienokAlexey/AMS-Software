@@ -154,9 +154,38 @@ class Connect extends Db
     public static function task1($dbname): false|array
     {
         $pdo = self::db($dbname);
-        $sql = 'SELECT carbrands.carBrand, carmodels.carModel, carmodels.endDate FROM carmodels
-INNER JOIN carbrands ON carmodels.carBrand_id = carbrands.id
-WHERE carmodels.endDate < 2018';
+        $sql =
+            'SELECT carbrands.carBrand, carmodels.carModel, carmodels.endDate FROM carmodels
+            INNER JOIN carbrands ON carmodels.carBrand_id = carbrands.id
+            WHERE carmodels.endDate < 2018';
+        $stm = $pdo->prepare($sql);
+        $stm->execute();
+        return $stm->fetchAll(2);
+    }
+
+    public static function task2($dbname): false|array
+    {
+        $pdo = self::db($dbname);
+        $sql =
+            'SELECT carbrands.carBrand, carmodels.carModel, workcosts.workType, workcosts.workCost
+            FROM carmodels
+            INNER JOIN carbrands ON carmodels.carBrand_id = carbrands.id
+            INNER JOIN workcosts ON carmodels.workType_id = workcosts.id
+            WHERE workcosts.workCost < 1000';
+        $stm = $pdo->prepare($sql);
+        $stm->execute();
+        return $stm->fetchAll(2);
+    }
+
+    public static function task3($dbname): false|array
+    {
+        $pdo = self::db($dbname);
+        $sql =
+            'SELECT carbrands.carBrand, carmodels.carModel, workcosts.workType, workcosts.workCost, carmodels.carType
+            FROM carmodels
+            INNER JOIN carbrands ON carmodels.carBrand_id = carbrands.id
+            INNER JOIN workcosts ON carmodels.workType_id = workcosts.id
+            ORDER BY carmodels.carType';
         $stm = $pdo->prepare($sql);
         $stm->execute();
         return $stm->fetchAll(2);

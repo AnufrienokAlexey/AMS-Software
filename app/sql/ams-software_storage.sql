@@ -24,6 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `carbrands`
+--
+
+CREATE TABLE `carbrands` (
+  `id` int(11) NOT NULL,
+  `carBrand` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Дамп данных таблицы `carbrands`
+--
+
+INSERT INTO `carbrands` (`id`, `carBrand`) VALUES
+(1, 'audi'),
+(2, 'lada'),
+(3, 'mersedes'),
+(4, 'toyota'),
+(5, 'vw'),
+(6, 'bmw');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `carmodels`
 --
 
@@ -52,9 +75,39 @@ INSERT INTO `carmodels` (`id`, `carModel`, `startDate`, `endDate`, `carImage`, `
 (11, 'golf', '2006', '2021', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'hatchback', 5, 9),
 (12, 'passat', '1999', '2021', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'sedan', 5, 2);
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `workcosts`
+--
+
+CREATE TABLE `workcosts` (
+  `id` int(11) NOT NULL,
+  `workType` varchar(30) DEFAULT NULL,
+  `workTime` varchar(30) DEFAULT NULL,
+  `workCost` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Дамп данных таблицы `workcosts`
+--
+
+INSERT INTO `workcosts` (`id`, `workType`, `workTime`, `workCost`) VALUES
+(1, 'Замена колодок', '1', '500'),
+(2, 'Ремонт двигателя', '20', '25000'),
+(3, 'Замена прокладки ГБЦ', '3', '1800'),
+(8, 'Замена тросика ручника', '2', '2500'),
+(9, 'Чистка пылесосом', '1.2', '750');
+
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `carbrands`
+--
+ALTER TABLE `carbrands`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `carmodels`
@@ -63,14 +116,32 @@ ALTER TABLE `carmodels`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `workcosts`
+--
+ALTER TABLE `workcosts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
+
+--
+-- AUTO_INCREMENT для таблицы `carbrands`
+--
+ALTER TABLE `carbrands`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `carmodels`
 --
 ALTER TABLE `carmodels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT для таблицы `workcosts`
+--
+ALTER TABLE `workcosts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

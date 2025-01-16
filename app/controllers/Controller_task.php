@@ -13,7 +13,7 @@ class Controller_task extends Controller
 
     public function action_index(): void
     {
-        $data = $this->model->task1();
+        $data = $this->model->task();
         $this->view->generate(
             'task_view.php',
             'template_view.php',

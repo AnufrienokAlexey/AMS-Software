@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 16 2025 г., 02:31
+-- Время создания: Янв 16 2025 г., 04:04
 -- Версия сервера: 10.4.32-MariaDB
 -- Версия PHP: 8.2.12
 
@@ -42,7 +42,8 @@ INSERT INTO `workcosts` (`id`, `workType`, `workTime`, `workCost`) VALUES
 (1, 'Замена колодок', '1', '500'),
 (2, 'Ремонт двигателя', '20', '25000'),
 (3, 'Замена прокладки ГБЦ', '3', '1800'),
-(8, 'Замена тросика ручника', '2', '2500');
+(8, 'Замена тросика ручника', '2', '2500'),
+(9, 'Чистка пылесосом', '1.2', '750');
 
 --
 -- Индексы сохранённых таблиц
@@ -62,7 +63,7 @@ ALTER TABLE `workcosts`
 -- AUTO_INCREMENT для таблицы `workcosts`
 --
 ALTER TABLE `workcosts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
