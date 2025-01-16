@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 15 2025 г., 08:41
+-- Время создания: Янв 16 2025 г., 02:30
 -- Версия сервера: 10.4.32-MariaDB
 -- Версия PHP: 8.2.12
 
@@ -40,7 +40,9 @@ INSERT INTO `carbrands` (`id`, `carBrand`) VALUES
 (1, 'audi'),
 (2, 'lada'),
 (3, 'mersedes'),
-(4, 'toyota');
+(4, 'toyota'),
+(5, 'vw'),
+(6, 'bmw');
 
 --
 -- Индексы сохранённых таблиц
@@ -60,7 +62,7 @@ ALTER TABLE `carbrands`
 -- AUTO_INCREMENT для таблицы `carbrands`
 --
 ALTER TABLE `carbrands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

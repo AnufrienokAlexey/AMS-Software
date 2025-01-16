@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 15 2025 г., 08:59
+-- Время создания: Янв 16 2025 г., 02:31
 -- Версия сервера: 10.4.32-MariaDB
 -- Версия PHP: 8.2.12
 
@@ -33,22 +33,23 @@ CREATE TABLE `carmodels` (
   `startDate` varchar(30) DEFAULT NULL,
   `endDate` varchar(30) DEFAULT NULL,
   `carImage` varchar(100) DEFAULT NULL,
-  `carType` varchar(30) DEFAULT NULL
+  `carType` varchar(30) DEFAULT NULL,
+  `carBrand_id` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `carmodels`
 --
 
-INSERT INTO `carmodels` (`id`, `carModel`, `startDate`, `endDate`, `carImage`, `carType`) VALUES
-(1, 'granta', '2012', '2025', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'jeep'),
-(2, 'priora', '2007', '2013', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'sedan'),
-(7, 'w200', '2010', '2019', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'sedan'),
-(8, 'tt', '1998', '2015', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'jeep'),
-(9, 'prado', '1990', '2025', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'jeep'),
-(10, 'corolla', '1991', '2017', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'sedan'),
-(11, 'golf', '2006', '2021', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'hatchback'),
-(12, 'passat', '1999', '2021', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'sedan');
+INSERT INTO `carmodels` (`id`, `carModel`, `startDate`, `endDate`, `carImage`, `carType`, `carBrand_id`) VALUES
+(1, 'granta', '2012', '2025', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'jeep', 2),
+(2, 'priora', '2007', '2013', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'sedan', 2),
+(7, 'w200', '2010', '2019', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'sedan', 3),
+(8, 'tt', '1998', '2015', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'jeep', 1),
+(9, 'prado', '1990', '2025', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'jeep', 4),
+(10, 'corolla', '1991', '2017', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'sedan', 4),
+(11, 'golf', '2006', '2021', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'hatchback', 5),
+(12, 'passat', '1999', '2021', 'C:xampphtdocsAMS-Softwareapp/uploads/5c8ef3fbc48ab31be880013cc057d4bf.jpg', 'sedan', 5);
 
 --
 -- Индексы сохранённых таблиц

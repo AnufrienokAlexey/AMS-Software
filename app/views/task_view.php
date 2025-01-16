@@ -3,13 +3,12 @@
 <p>Вывести список автомобилей, снятых с производства на сентябрь 2018 года. В формате Марка, Модель, Дата снятия с
     производства.</p>
 <h4>Решение:</h4>
-<p>В задаче не хватает условия о том, что нужно добавить дополнительную таблицу, которая связывает таблицы марок и
-    моделей автомобилей</p>
-<p>Поэтому решение может быть только не полным:</p>
-<p>
-    <code>SELECT `carModel` FROM `carmodels` WHERE `endDate` < 2018;</code>
-</p>
-И будет такая таблица выглядеть следующим образом:
+<p>Но я предпологаю, что надо выстроить запрос с использование JOIN. Поэтому мы добавляем столбец carBrand_id в таблицу
+    carModels. И выстраиваем такой запрос:</p>
+<p><code>SELECT carbrands.carBrand, carmodels.carModel, carmodels.endDate FROM carmodels</code></p>
+<p><code>INNER JOIN carbrands ON carmodels.carBrand_id = carbrands.id</code></p>
+<p><code>WHERE carmodels.endDate < 2018</code></p>
+<p>И будет такая таблица выглядеть следующим образом:</p>
 <div class="h-100">
     <div class="container h-100">
         <div class="row justify-content-sm-center h-100">
@@ -17,31 +16,26 @@
                 <div class="card-body">
                     <h4 class="text-center">Задача 1</h4>
                     <div class="d-flex flex-column">
-                        <?php
-                        foreach ($data as $item) {
-                            ?>
-                            <div class="d-flex justify-content-center">
-                                <div class="cell"><?= $item['carModel']; ?></div>
-                            </div>
+                        <ol>
                             <?php
-                        } ?>
+                            foreach ($data as $item) {
+                                ?>
+                                <li>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="cell"><?= $item['carBrand']; ?></div>
+                                        <div class="cell"><?= $item['carModel']; ?></div>
+                                        <div class="cell"><?= $item['endDate']; ?></div>
+                                    </div>
+                                </li>
+                                <?php
+                            } ?>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-Но если подразумевается, что мы сами должны об этом подумать, то решение будет таким:
-<form action="/task/createCars" method="post">
-    <button type="submit" class="btn btn-primary">Создать новую cars таблицу связей c исходными данными</button>
-</form>
-
-<form action="/task/deleteCars" method="post">
-    <button type="submit" class="btn btn-danger">Удалить таблицу cars</button>
-</form>
-<p>
-    <code>SELECT `carModel` FROM `carmodels` WHERE `endDate` < 2018;</code>
-</p>
 <?php
 dump($data);
 ?>

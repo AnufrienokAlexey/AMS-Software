@@ -155,7 +155,9 @@ class Connect extends Db
     public static function task1($dbname): false|array
     {
         $pdo = self::db($dbname);
-        $sql = 'SELECT `carModel` FROM `carmodels` WHERE `endDate` < 2018;';
+        $sql = 'SELECT carbrands.carBrand, carmodels.carModel, carmodels.endDate FROM carmodels
+INNER JOIN carbrands ON carmodels.carBrand_id = carbrands.id
+WHERE carmodels.endDate < 2018';
         $stm = $pdo->prepare($sql);
         $stm->execute();
         return $stm->fetchAll(2);
