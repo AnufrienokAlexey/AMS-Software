@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1
--- Время создания: Янв 16 2025 г., 04:04
--- Версия сервера: 10.4.32-MariaDB
--- Версия PHP: 8.2.12
+-- Хост: localhost
+-- Время создания: Янв 19 2025 г., 10:30
+-- Версия сервера: 5.7.21-20-beget-5.7.21-20-1-log
+-- Версия PHP: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `ams-software_storage`
+-- База данных: `ipalexan_amssoft`
 --
 
 -- --------------------------------------------------------
@@ -26,7 +27,11 @@ SET time_zone = "+00:00";
 --
 -- Структура таблицы `carmodels`
 --
+-- Создание: Янв 19 2025 г., 06:30
+-- Последнее обновление: Янв 19 2025 г., 07:27
+--
 
+DROP TABLE IF EXISTS `carmodels`;
 CREATE TABLE `carmodels` (
   `id` int(11) NOT NULL,
   `carModel` varchar(30) DEFAULT NULL,
@@ -36,7 +41,7 @@ CREATE TABLE `carmodels` (
   `carType` varchar(30) DEFAULT NULL,
   `carBrand_id` int(30) NOT NULL,
   `workType_id` int(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `carmodels`
@@ -70,7 +75,7 @@ ALTER TABLE `carmodels`
 -- AUTO_INCREMENT для таблицы `carmodels`
 --
 ALTER TABLE `carmodels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

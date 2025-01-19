@@ -6,7 +6,7 @@ use PDO;
 
 class Connect extends Db
 {
-    public static function db($database = null): PDO
+    public static function db(): PDO
     {
         $db = new db(
             CONFIG['host'],
@@ -18,72 +18,30 @@ class Connect extends Db
         $dbVars = get_object_vars($db);
 
         try {
-            if ($database == null) {
-                return new PDO(
-                    "mysql:host=$dbVars[host]",
-                    "$dbVars[username]",
-                    "$dbVars[password]"
-                );
-            } else {
-                return new PDO(
-                    "mysql:host=$dbVars[host];
-                    dbname=$dbVars[dbname]",
-                    "$dbVars[username]",
-                    "$dbVars[password]"
-                );
-            }
+            return new PDO(
+                "mysql:host=$dbVars[host];
+                dbname=$dbVars[dbname]",
+                "$dbVars[username]",
+                "$dbVars[password]"
+            );
         } catch (\Exception $e) {
             error_log($e->getMessage());
             die('MySQL is not connected!!!');
         }
     }
 
-    public static function getAllDatabases(): false|array
-    {
-        return self::db()
-            ->query('SHOW DATABASES')
-            ->fetchAll(PDO::FETCH_COLUMN);
-    }
-
     public static function getAllTables(): false|array
     {
-        return self::db(CONFIG['dbname'])
-            ->query('SHOW TABLES')
-            ->fetchAll(PDO::FETCH_COLUMN);
-    }
-
-    public static function createNewDb($dbname): void
-    {
-        $databases = self::getAllDatabases();
-
-        if (!in_array(CONFIG['dbname'], $databases)) {
-            try {
-                $sth = self::db()->prepare(
-                    "CREATE DATABASE `$dbname` COLLATE utf8_general_ci"
-                );
-                $sth->execute();
-            } catch (\PDOException $e) {
-                error_log($e->getMessage());
-            }
+        try {
+            $pdo = self::db();
+            $sth = $pdo->prepare("SHOW TABLES");
+            $sth->execute();
+            return $sth->fetchAll(PDO::FETCH_COLUMN);
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+            echo('function getAllTables()');
         }
-    }
-
-    public static function createNewTable($table, $tableParams): void
-    {
-        $tables = self::getAllTables();
-
-        if (!in_array($table, $tables)) {
-            try {
-                $sth = self::db(CONFIG['dbname'])->prepare(
-                    "CREATE TABLE `$table` (
-					id integer auto_increment primary key, 
-					$tableParams"
-                );
-                $sth->execute();
-            } catch (\PDOException $e) {
-                error_log($e->getMessage());
-            }
-        }
+        return false;
     }
 
     public static function deleteTable($table): void
@@ -92,7 +50,7 @@ class Connect extends Db
 
         if (in_array($table, $tables)) {
             try {
-                $sth = self::db(CONFIG['dbname'])->prepare(
+                $sth = self::db()->prepare(
                     "DROP TABLE `$table`"
                 );
                 $sth->execute();
@@ -102,50 +60,36 @@ class Connect extends Db
         }
     }
 
-    public static function addToTable($dbname, $table, $fields, $fieldsValue): void
+    public static function addToTable($table, $fields, $fieldsValue): void
     {
-        $pdo = self::db($dbname);
+        $table = strtolower($table);
+        $pdo = self::db();
         $stm = $pdo->prepare("INSERT INTO `$table` ($fields) VALUES ($fieldsValue);");
         $stm->execute();
     }
 
-    public static function getDataFromTable($dbname, $table): false|array
+    public static function getDataFromTable($table): false|array
     {
+        $table = strtolower($table);
         $tables = self::getAllTables();
-        if (!in_array($table, $tables)) {
+        if (in_array($table, $tables)) {
             try {
-                $stm = self::db($dbname)->prepare("SELECT * FROM `$table`;");
+                $pdo = self::db();
+                $stm = $pdo->prepare("SELECT * FROM $table");
                 $stm->execute();
                 return $stm->fetchAll(2);
             } catch (\PDOException $e) {
                 error_log($e->getMessage());
+                echo('getDataFromTable');
             }
         }
         return false;
     }
 
-    public static function importTableToDb($dbname, $table, $sqlFile): void
+    public static function deleteId($table, $id): void
     {
-        $tables = self::getAllTables();
-        $sqlPath = APP . '/sql/' . $sqlFile;
-
-        if (file_exists($sqlPath)) {
-            if (!in_array($table, $tables)) {
-                try {
-                    $pdo = self::db($dbname);
-                    $sql = file_get_contents($sqlPath);
-                    $pdo->exec($sql);
-                    $pdo->exec($sql);
-                } catch (\PDOException $e) {
-                    error_log($e->getMessage());
-                }
-            }
-        }
-    }
-
-    public static function deleteId($dbname, $table, $id): void
-    {
-        $pdo = self::db($dbname);
+        $table = strtolower($table);
+        $pdo = self::db();
         $stm = $pdo->prepare("DELETE FROM `$table` WHERE `id` = :id;");
         $stm->bindParam(':id', $id);
         $stm->execute();

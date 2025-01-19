@@ -2,8 +2,8 @@
 
 return [
     'host' => 'localhost',
-    'dbname' => 'ams-software_storage',
+    'dbname' => 'ipalexan_amssoft',
     'charset' => 'utf8',
-    'username' => 'root',
-    'password' => '',
+    'username' => 'ipalexan_amssoft',
+    'password' => 'eOGXn*%R3CnN',
 ];

@@ -24,14 +24,14 @@ class Router
         $action_name = 'action_' . $action_name;
 
         $model_file = $model_name . '.php';
-        $model_path = 'app/models/' . $model_file;
+        $model_path = APP . '/models/' . $model_file;
 
         if (file_exists($model_path)) {
             include $model_path;
         }
 
         $controller_file = $controller_name . '.php';
-        $controller_path = 'app/controllers/' . $controller_file;
+        $controller_path = APP . '/controllers/' . $controller_file;
 
         if (file_exists($controller_path)) {
             include $controller_path;
@@ -42,10 +42,10 @@ class Router
             if (method_exists($controller, $action)) {
                 $controller->$action();
             } else {
-                //Router::ErrorPage404();
+                Router::ErrorPage404();
             }
         } else {
-            //Router::ErrorPage404();
+            Router::ErrorPage404();
         }
     }
 

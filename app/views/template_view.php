@@ -19,7 +19,7 @@
 <h1 hidden="hidden">This is MVC-project for AMS-Software.</h1>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">AWS-Software</a>
+        <a class="navbar-brand" href="#">AMS-Software</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

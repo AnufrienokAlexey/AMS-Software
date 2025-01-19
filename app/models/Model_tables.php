@@ -9,9 +9,9 @@ class Model_tables
     public function getDataFromTable(): false|array
     {
         $tables = ['carBrands', 'carModels', 'workCosts'];
-        $carBrands = Connect::getDataFromTable(CONFIG['dbname'], 'carBrands');
-        $carModels = Connect::getDataFromTable(CONFIG['dbname'], 'carModels');
-        $workCosts = Connect::getDataFromTable(CONFIG['dbname'], 'workCosts');
+        $carBrands = Connect::getDataFromTable('carBrands');
+        $carModels = Connect::getDataFromTable('carModels');
+        $workCosts = Connect::getDataFromTable('workCosts');
         $values = [$carBrands, $carModels, $workCosts];
 
         return array_combine($tables, $values);
@@ -19,6 +19,6 @@ class Model_tables
 
     public function deleteIdInTable($table, $id): void
     {
-        Connect::deleteId(CONFIG['dbname'], $table, $id);
+        Connect::deleteId($table, $id);
     }
 }
